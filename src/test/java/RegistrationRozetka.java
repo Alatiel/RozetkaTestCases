@@ -16,16 +16,16 @@ public class RegistrationRozetka {
     String product = "Meizu M6 3/32GB Black (Международная версия)";
 
     @Test
-    public void registration() throws InterruptedException {
+    public void Registration() throws InterruptedException {
        driver.get("https://rozetka.com.ua/");
        //add if
-       driver.findElement(By.xpath(("//span[@class='exponea-close']"))).click();
-       driver.findElement(By.xpath(("//a[@class='header-user-link sprite-side whitelink xhr']"))).click();
-       driver.findElement(By.xpath(("//a[@class='novisited auth-f-signup-link']"))).click();
-       driver.findElement(By.xpath(("//input[@name='title']"))).sendKeys(userName);
-       driver.findElement(By.xpath(("//input[@name='login']"))).sendKeys(login);
-       driver.findElement(By.xpath(("//input[@name='password']"))).sendKeys(password);
-       driver.findElement(By.xpath(("//button[@class='btn-link-i' and @type='submit']"))).click();
+       driver.findElement(By.xpath("//span[@class='exponea-close']")).click();
+       driver.findElement(By.xpath("//a[@class='header-user-link sprite-side whitelink xhr']")).click();
+       driver.findElement(By.xpath("//a[@class='novisited auth-f-signup-link']")).click();
+       driver.findElement(By.xpath("//input[@name='title']")).sendKeys(userName);
+       driver.findElement(By.xpath("//input[@name='login']")).sendKeys(login);
+       driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
+       driver.findElement(By.xpath("//button[@class='btn-link-i' and @type='submit']")).click();
        sleep(5000);
        //dd normal wait
        Actualtext = driver.findElement(By.xpath(("//span[text()='Мой кабинет']"))).getText();
@@ -33,28 +33,37 @@ public class RegistrationRozetka {
        driver.quit();
     }
     @Test
-    public void login() throws InterruptedException {
+    public void Login() throws InterruptedException {
         driver.get("https://rozetka.com.ua/");
-        driver.findElement(By.xpath(("//a[@class='header-user-link sprite-side whitelink xhr']"))).click();
-        driver.findElement(By.xpath(("//input[@name='login']"))).sendKeys(login);
-        driver.findElement(By.xpath(("//input[@name='password']"))).sendKeys(password);
-        driver.findElement(By.xpath(("//button[@class='btn-link-i' and @type='submit']"))).click();
+        driver.findElement(By.xpath("//a[@class='header-user-link sprite-side whitelink xhr']")).click();
+        driver.findElement(By.xpath("//input[@name='login']")).sendKeys(login);
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
+        driver.findElement(By.xpath("//button[@class='btn-link-i' and @type='submit']")).click();
         sleep(5000);
         //dd normal wait
-        Actualtext = driver.findElement(By.xpath(("//a[@class='header-user-link sprite-side whitelink xhr']"))).getText();
+        Actualtext = driver.findElement(By.xpath("//a[@class='header-user-link sprite-side whitelink xhr']")).getText();
         Assert.assertEquals(Actualtext, userName);
         driver.quit();
     }
     @Test
-    public void findeProducrByNameAndAddToCart() throws InterruptedException {
+    public void FindProductByNameAndAddToCart() throws InterruptedException {
         driver.get("https://rozetka.com.ua/");
-        driver.findElement(By.xpath(("//input[@class='rz-header-search-input-text passive']"))).sendKeys(product);
-        driver.findElement(By.xpath(("//button[@class='btn-link-i js-rz-search-button']"))).click();
-        driver.findElement(By.xpath(("//button[@class='btn-link-i' and @type='submit']"))).click();
-        Actualtext = driver.findElement(By.xpath(("//h2[@class='cart-title']"))).getText();
+        driver.findElement(By.xpath("//input[@class='rz-header-search-input-text passive']")).sendKeys(product);
+        driver.findElement(By.xpath("//button[@class='btn-link-i js-rz-search-button']")).click();
+        driver.findElement(By.xpath("//button[@class='btn-link-i' and @type='submit']")).click();
+        Actualtext = driver.findElement(By.xpath("//h2[@class='cart-title']")).getText();
         sleep(5000);
         //add normal wait
         Assert.assertEquals(Actualtext, "Вы добавили товар в корзину" );
         driver.quit();
+    }
+    @Test
+    public void EmptyCart(){
+        driver.get("https://rozetka.com.ua/");
+        driver.findElement(By.xpath("//div[@class='header-popup-cart-check hidden']")).click();
+
+        //"//div[@class='wrap-cart-empty']"
+        driver.quit();
+
     }
 }
