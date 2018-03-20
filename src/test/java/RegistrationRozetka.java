@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 import static java.lang.Thread.sleep;
 
 
-public class RegistrationRozetka {
-    WebDriver driver = new ChromeDriver();
+public class RegistrationRozetka extends BaseTest {
+   // WebDriver driver = new ChromeDriver();
     String Actualtext;
     String userName = "Lila";
     String login = "lilamuse18@yopmail.com";
