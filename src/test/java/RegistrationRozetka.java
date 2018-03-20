@@ -14,6 +14,7 @@ public class RegistrationRozetka {
     String login = "lilamuse18@yopmail.com";
     String password = "Lila281";
     String product = "Meizu M6 3/32GB Black (Международная версия)";
+    String ExpectedName;
 
     @Test
     public void registration() throws InterruptedException {
@@ -40,9 +41,10 @@ public class RegistrationRozetka {
         driver.findElement(By.xpath(("//input[@name='password']"))).sendKeys(password);
         driver.findElement(By.xpath(("//button[@class='btn-link-i' and @type='submit']"))).click();
         sleep(5000);
-        //add normal wait
-        Actualtext = driver.findElement(By.xpath(("//h1[text()='Мой кабинет']"))).getText();
-        Assert.assertEquals(Actualtext, "Мой кабинет" );
+        //dd normal wait
+        // ExpectedName = userName;
+        Actualtext = driver.findElement(By.xpath(("//a[text()='Lila']"))).getText();
+        Assert.assertEquals(Actualtext, userName);
         driver.quit();
     }
     @Test
