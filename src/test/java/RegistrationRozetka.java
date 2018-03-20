@@ -41,7 +41,7 @@ public class RegistrationRozetka {
         driver.findElement(By.xpath(("//button[@class='btn-link-i' and @type='submit']"))).click();
         sleep(5000);
         //dd normal wait
-        Actualtext = driver.findElement(By.xpath(("//a[text()='Lila']"))).getText();
+        Actualtext = driver.findElement(By.xpath(("//a[@class='header-user-link sprite-side whitelink xhr']"))).getText();
         Assert.assertEquals(Actualtext, userName);
         driver.quit();
     }
