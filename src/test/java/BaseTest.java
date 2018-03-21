@@ -9,19 +9,13 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup () {
-        System.out.println("BeforeClass");
-        //Create a Chrome driver. All test and page classes use this driver.
+
         driver = new ChromeDriver();
-
-        //Create a wait. All test and page classes use this wait.
         wait = new WebDriverWait(driver, 10);
-
-        //Maximize Window
         driver.manage().window().maximize();
     }
     @AfterMethod
     public void teardown () {
-        System.out.println("AfterMethod");
         // driver.get("chrome://settings/clearBrowserData");
         driver.quit();
         driver = null;
