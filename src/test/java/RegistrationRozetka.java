@@ -52,7 +52,6 @@ public class RegistrationRozetka extends BaseTest {
         driver.findElement(By.xpath("//button[@class='btn-link-i js-rz-search-button']")).click();
         driver.findElement(By.xpath("//button[@class='btn-link-i' and @type='submit']")).click();
         sleep(5000);
-        //add normal wait
         Actualtext = driver.findElement(By.xpath("//h2[@class='cart-title']")).getText();
         Assert.assertEquals(Actualtext, "Вы добавили товар в корзину" );
     }
