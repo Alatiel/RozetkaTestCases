@@ -60,9 +60,9 @@ public class RegistrationRozetka extends BaseTest {
     public void EmptyCart(){
         driver.get("https://rozetka.com.ua/");
         driver.findElement(By.xpath("//a[@class='hub-i-link hub-i-cart-link sprite-side whitelink']")).click();
-        //driver.findElement(By.xpath("//div[@class='header-popup-cart-check hidden']")).click();
         Actualtext = driver.findElement(By.xpath("//h2[@class='empty-cart-title inline sprite-side']")).getText();
         Assert.assertEquals(Actualtext, "Корзина пуста" );
         //"//div[@class='wrap-cart-empty']"
     }
+
 }

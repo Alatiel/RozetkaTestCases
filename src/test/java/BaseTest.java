@@ -3,9 +3,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.sql.Timestamp;
+
 public class BaseTest {
     public WebDriver driver;
     public WebDriverWait wait;
+    //Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
     @BeforeMethod
     public void setup () {
